@@ -37,12 +37,12 @@ def get_most_frequent_words(text, count):
     words_statistics_sorted = sorted(words_statistics, key=lambda x: x[1],
                                      reverse=True)
     top_words = []
-    for wordNumber in range(count):
-        if wordNumber < len(words_statistics_sorted):
+    for word_number in range(count):
+        if word_number < len(words_statistics_sorted):
             top_words.append(words_statistics_sorted[wordNumber][0])
     return top_words
 
 
 if __name__ == '__main__':
-    text2analise = load_data(parser_config().parse_args().file_path)
-    print('Top 10 words: ' + str(get_most_frequent_words(text2analise, 10)))
+    text_to_analise = load_data(parser_config().parse_args().file_path)
+    print('Top 10 words: ' + str(get_most_frequent_words(text_to_analise, 10)))
