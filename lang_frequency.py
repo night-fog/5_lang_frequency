@@ -16,8 +16,8 @@ def parser_config():
 
 def load_data(filepath):
     with open(filepath) as file:
-        data = file.read()
-    return data
+        file_content = file.read()
+    return file_content
 
 
 def replace_symbols_to_space(text):
@@ -39,7 +39,7 @@ def get_most_frequent_words(text, count):
     top_words = []
     for word_number in range(count):
         if word_number < len(words_statistics_sorted):
-            top_words.append(words_statistics_sorted[wordNumber][0])
+            top_words.append(words_statistics_sorted[word_number][0])
     return top_words
 
 
