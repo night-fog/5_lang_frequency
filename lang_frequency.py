@@ -30,19 +30,19 @@ def replace_symbols_to_space(text):
     return re.sub(r'\s+', ' ', text)
 
 
-def get_most_frequent_words(text):
+def get_most_frequent_words(text, count):
     text = replace_symbols_to_space(text)
     words = text.split()
     words_statistics = [[x, words.count(x)] for x in set(words)]
     words_statistics_sorted = sorted(words_statistics, key=lambda x: x[1],
                                      reverse=True)
-    top10words = []
-    for wordNumber in range(10):
+    top_words = []
+    for wordNumber in range(count):
         if wordNumber < len(words_statistics_sorted):
-            top10words.append(words_statistics_sorted[wordNumber][0])
-    return top10words
+            top_words.append(words_statistics_sorted[wordNumber][0])
+    return top_words
 
 
 if __name__ == '__main__':
     text2analise = load_data(parser_config().parse_args().file_path)
-    print('Top 10 words: ' + str(get_most_frequent_words(text2analise)))
+    print('Top 10 words: ' + str(get_most_frequent_words(text2analise, 10)))
